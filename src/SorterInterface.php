@@ -3,7 +3,13 @@
 
 namespace FEV;
 
+/**
+ * Interface SorterInterface
+ * @package FEV/sorter
+ * Interface with general method for realise any sorting methods.
+ */
+
 interface SorterInterface
 {
-    public function Sorting(array $data): array;
+    public function sort(array $data): array;
 }

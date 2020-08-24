@@ -3,14 +3,24 @@
 
 namespace FEV;
 
-class SortingABC implements SorterInterface
+/**
+ * Class SortingABC
+ * @package FEV/sorter
+ * This class is realise of ascending sorting method.
+ */
+
+final class SortingABC implements SorterInterface
 {
-    public function Sorting(array $data): array
+    public function sort(array $data): array
     {
-        if (sort($data)) {
-            return $data;
-        } else {
-            echo "Something wrong with sorting";
+        try {
+            if (sort($data)) {
+                return $data;
+            } else {
+                throw new SorterException('Something wrong with sorting');
+            }
+        } catch (SorterException $error) {
+            die("Error: {$error->getMessage()}" . PHP_EOL);
         }
     }
 }

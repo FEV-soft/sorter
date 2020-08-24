@@ -7,18 +7,32 @@ class Sorter
 {
     private object $sortmethod;
 
+    /**
+     * Sorter constructor which define default sorting method - Do nothing.
+     */
     public function __construct()
     {
         $this->sortmethod = new SortingNull();
     }
+
+    /**
+     * Method for define sorting type realisation.
+     * @param SorterInterface $sortmethod
+     */
 
     public function setSortingMethod(SorterInterface $sortmethod)
     {
         $this->sortmethod = $sortmethod;
     }
 
-    public function Sorting(array $data): array
+    /**
+     * Sorting input array with define sorting type.
+     * @param array $data
+     * @return array
+     */
+
+    public function sort(array $data): array
     {
-        return $this->sortmethod->Sorting($data);
+        return $this->sortmethod->sort($data);
     }
 }
